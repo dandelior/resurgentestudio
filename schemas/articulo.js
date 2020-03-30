@@ -9,6 +9,19 @@ export default {
             type: "string"
         },
         {
+            title: "Slug",
+            name: "slug",
+            type: "slug",
+            options: {
+                source: "titulo",
+                maxLength: 200,
+                slugify: input => input
+                         .toLowerCase()
+                         .replace(/\s+/g, '-')
+                         .slice(0, 200)
+            }
+        },
+        {
             title: "Fecha",
             name: "fecha",
             type: "datetime"
@@ -39,5 +52,10 @@ export default {
             type: "reference",
             to: [{type: 'autor'}]
         },
+        {
+            title: '¿Es Destacado?',
+            name: 'esDestacado',
+            type: 'boolean'
+        }
     ]
 }
